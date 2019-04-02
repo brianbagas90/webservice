@@ -1,3 +1,32 @@
+<form method="POST" action="">
+<table>
+<tr>
+<td>NIM</td>
+<td><input type="text" name="nim" id="nim"></td>
+</tr>
+<tr>
+<td><input type="submit" name="submit" id="submit" value="Cek"></td>
+<td>
+</td>
+<?php
+if(isset($_POST['submit'])){
+	$arr = Array();
+	$nim = $_POST['nim'];
+	$con=mysqli_connect("localhost","root","","akademik");
+	$result = mysqli_query($con,"SELECT * FROM mahasiswa WHERE nim='$nim'");
+	while ($row=mysqli_fetch_assoc($result)){
+		$arr[] = $row;
+	}
+	echo json_encode($arr);
+  
+}
+  
+
+?>
+
+
+
+
 <?php
 // Check for the path elements
 // Turn off error reporting
@@ -50,7 +79,7 @@ if ($path_params[1] == null) {
 }
 else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 if ($path_params[1] != null) {
-		$con=mysqli_connect("localhost","root","","akademik");
+		$con=mysqli_connect("localhost","id4103787_oktioryan0140","","billabong45");
 // Check connection
 	if (mysqli_connect_errno())
 	{

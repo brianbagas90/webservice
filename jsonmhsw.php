@@ -16,7 +16,7 @@ $path_params = spliti ("/", $path);
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 //
-	$con=mysqli_connect("localhost","root","","akademik");
+	$con=mysqli_connect("localhost","id4103787_oktioryan0140","billabong45","id4103787_sertifikasi	");
 // Check connection
 	if (mysqli_connect_errno())
 	{
@@ -28,9 +28,9 @@ $input = file_get_contents("php://input");
 $json = json_decode($input, true);
 echo "json =".$json["nim"] ;
 echo "Proses".$json->nim;
-$nimmhsw=$json["nim"];
-$namamhsw=$json["nama"];
-$prodimhsw=$json["prodi"];
+$nim=$json["nim"];
+$nama=$json["nama"];
+$prodi=$json["prodi"];
 /*foreach ($json as $key => $value){
   echo  $key . ':' . $value;
 }*/
@@ -38,7 +38,7 @@ $prodimhsw=$json["prodi"];
 		echo "query select ".$querycek;
 	//if ($result=mysqli_query($con,querycek))
 	//{
-		$result=mysqli_query($con,querycek);
+		$result=mysqli_query($kon,querycek);
 		echo "result =".$result;
 		while ($row=mysqli_fetch_row($result))
 		{
@@ -54,9 +54,9 @@ $prodimhsw=$json["prodi"];
 		nama,
 		prodi)
 		VALUES (				
-		'$nimmhsw',
-		'$namamhsw',
-		'$prodimhsw')";
+		'$nim',
+		'$nama',
+		'$prodi')";
 		echo "query ".$query;
 		mysqli_query($con,$query);
 		}
